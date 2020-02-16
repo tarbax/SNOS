@@ -3,6 +3,10 @@
 
 so after running Bruh Multisensors for 2years possibly it was time to upgrade!
 
+This project is a relative easy way to get started with your own SNOS Multisensor with ESPhome firmware.
+
+This project requires **soldering !**
+
 ### Why?
 
 I wanted a smaller and more smart sensor so i get to the drawing board.
@@ -30,6 +34,23 @@ comparison with a Bruh Multisensor:
 ![alt text](https://community-home-assistant-assets.s3.dualstack.us-west-2.amazonaws.com/original/3X/9/4/94a146183faba7578926db0bbe43dd35c51e2de5.jpeg?raw=true "pcb")
 
 i have hopefully the final revision in house within 3 weeks (waiting on jlcpcb order)
+
+### Parts List
+**Aliexpress**
+- [SNOS board](http://geni.us/)
+- [NodeMCU 1.0](http://geni.us/)
+- [DHT22 Module](http://geni.us/)
+    OR
+- [SHT3x Module](http://geni.us/)
+- [CCS811 Module](http://geni.us/)
+- [LDR Photoresistor Module](http://geni.us/)
+    OR
+- [BHP1570](http://geni.us/)
+- [WS1812b Led](http://geni.us/)
+- [AM312 Mini PIR Sensor](http://geni.us/)
+- [piezo buzzer](http://geni.us/)
+- [3p 5mm terminal](http://geni.us/)
+
 ### Finale
 is there any requests for next revision or even a esp32 version ? like nfc, more leds, display, …
 This will be published with instructions once the design is finalized
