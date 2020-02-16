@@ -19,14 +19,10 @@ but your wrong is roughly half the size!
 
 pictures:
 i created a daughterboard that will fit this all
-image
-image
-593×695 123 KB
+
 
 comparison with a Bruh Multisensor:
-image
-image
-530×502 73.8 KB
+
 
 i have hopefully the final revision in house within 3 weeks (waiting on jlcpcb order)
 Finale
