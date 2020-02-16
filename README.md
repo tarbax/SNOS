@@ -1,7 +1,9 @@
 What?
+
 so after running Bruh Multisensors for 2years possibly it was time to upgrade!
 
 Why?
+
 I wanted a smaller and more smart sensor so i get to the drawing board.
 Decided to start of with a esp8266 amica
 
@@ -18,6 +20,7 @@ now you probably going to say this cant be possibly smaller than the awesome Bru
 but your wrong is roughly half the size!
 
 pictures:
+
 i created a daughterboard that will fit this all
 
 
