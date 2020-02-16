@@ -25,6 +25,7 @@ i created a daughterboard that will fit this all
 ![alt text](https://community-home-assistant-assets.s3.dualstack.us-west-2.amazonaws.com/original/3X/8/f/8f68f64889ca64955a9f1a51cd59972b41a57870.jpeg?raw=true "pcb")
 
 comparison with a Bruh Multisensor:
+
 ![alt text](https://community-home-assistant-assets.s3.dualstack.us-west-2.amazonaws.com/original/3X/9/4/94a146183faba7578926db0bbe43dd35c51e2de5.jpeg?raw=true "pcb")
 
 i have hopefully the final revision in house within 3 weeks (waiting on jlcpcb order)
