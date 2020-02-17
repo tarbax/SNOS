@@ -63,6 +63,10 @@ i have hopefully the final revision in house within 3 weeks (waiting on jlcpcb o
 |     SHT31     | ±0.2 @ -40 ->90  °C | ±3   @ 10-100%  RH |  3,5 € |                                             |
 |     SHT35     | ±0.1 @  20 ->60  °C | ±1.5 @  0-80%   RH |  9   € |                                             |
 
+### Got questions?
+
+- Home Assistant [Community Forum](https://community.home-assistant.io/t/snos-sensor-node-on-steroids/)
+
 ### Finale
 is there any requests for next revision or even a esp32 version ? like nfc, more leds, display, …
 This will be published with instructions once the design is finalized
