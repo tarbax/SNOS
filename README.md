@@ -40,8 +40,10 @@ i have hopefully the final revision in house within 3 weeks (waiting on jlcpcb o
 - [SNOS board](http://geni.us/)
 - [NodeMCU 1.0](http://geni.us/)
 - [DHT22 Module](http://geni.us/)
-    OR
+    OR  
 - [SHT3x Module](http://geni.us/)
+    OR 
+- [BME280 Module](http://geni.us/)
 - [CCS811 Module](http://geni.us/)
 - [LDR Photoresistor Module](http://geni.us/)
     OR
@@ -56,7 +58,7 @@ i have hopefully the final revision in house within 3 weeks (waiting on jlcpcb o
 |     type      |     Temperature    |      Humidity       | price +/- |                     note                    |
 | ------------- | ------------------ | ------------------- | ------ | ------------------------------------------- |
 |     DHT22     | ±0.5 @ -40 ->125 °C | ±5   @  0-100%  RH |  2,4 € | -- no Air quality sensor. -- temp accuracy may be worse|
-|     bme280    | ±1   @ -40 ->85  °C | ±3   @ 20-80%   RH |  2   € | bonus pressure sensor (300Pa-1100hPa ±1 hPa)|
+|     BME280    | ±1   @ -40 ->85  °C | ±3   @ 20-80%   RH |  2   € | bonus pressure sensor (300Pa-1100hPa ±1 hPa)|
 |     SHT30     | ±0.3 @   0 ->65  °C | ±3   @ 10-90%   RH |  1,9 € |                                             |
 |     SHT31     | ±0.2 @ -40 ->90  °C | ±3   @ 10-100%  RH |  3,5 € |                                             |
 |     SHT35     | ±0.1 @  20 ->60  °C | ±1.5 @  0-80%   RH |  9   € |                                             |
