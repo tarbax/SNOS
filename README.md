@@ -51,6 +51,16 @@ i have hopefully the final revision in house within 3 weeks (waiting on jlcpcb o
 - [piezo buzzer](http://geni.us/)
 - [3p 5mm terminal](http://geni.us/)
 
+#### types of temperature sensors sorted by accuracy from less to highest accuracy
+
+|     type      |     Temperature    |      Humidity       | price +/- |                     note                    |
+| ------------- | ------------------ | ------------------- | ------ | ------------------------------------------- |
+|     DHT22     | ±0.5 @ -40 ->125 °C | ±5   @  0-100%  RH |  2,4 € | -- no Air quality sensor. -- temp accuracy may be worse|
+|     bme280    | ±1   @ -40 ->85  °C | ±3   @ 20-80%   RH |  2   € | bonus pressure sensor (300Pa-1100hPa ±1 hPa)|
+|     SHT30     | ±0.3 @   0 ->65  °C | ±3   @ 10-90%   RH |  1,9 € |                                             |
+|     SHT31     | ±0.2 @ -40 ->90  °C | ±3   @ 10-100%  RH |  3,5 € |                                             |
+|     SHT35     | ±0.1 @  20 ->60  °C | ±1.5 @  0-80%   RH |  9   € |                                             |
+
 ### Finale
 is there any requests for next revision or even a esp32 version ? like nfc, more leds, display, …
 This will be published with instructions once the design is finalized
