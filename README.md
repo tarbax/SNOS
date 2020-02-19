@@ -1,7 +1,7 @@
 # Sensor Node On Steroids
 ### What?
 
-so after running Bruh Multisensors for 2years possibly it was time to upgrade!
+so after running the Bruh Multisensors for 2 years it was time to upgrade!
 
 This project is a relative easy way to get started with your own SNOS Multisensor with ESPhome firmware.
 
@@ -21,6 +21,7 @@ Air quality sensor (aiq, tvoc, eCO2 )
 Better led notification (brightness and colour saturation)
 Sound notification
 External temperature sensor (for monitoring entertainment closet, water temp, fridge,…)
+
 now you probably going to say this cant be possibly smaller than the awesome Bruh Multisensor
 but your wrong is roughly half the size!
 
@@ -33,7 +34,7 @@ comparison with a Bruh Multisensor:
 
 ![alt text](https://community-home-assistant-assets.s3.dualstack.us-west-2.amazonaws.com/original/3X/9/4/94a146183faba7578926db0bbe43dd35c51e2de5.jpeg?raw=true "pcb")
 
-i have hopefully the final revision in house within 3 weeks (waiting on jlcpcb order)
+i have hopefully the final revision in house around 2nd week of march (waiting on jlcpcb order)
 
 ### Parts List
 **Aliexpress**
