@@ -36,7 +36,7 @@ comparison with a Bruh Multisensor:
 
 i have hopefully the final revision in house around 2nd week of march (waiting on jlcpcb order)
 
-### Parts List
+### Parts List UNTESTED YET!
 **Aliexpress** (affiliate links)
 - SNOS board
 - [NodeMCU 1.0](https://s.click.aliexpress.com/e/_dSPnV6D) option cp102
