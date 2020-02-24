@@ -37,22 +37,22 @@ comparison with a Bruh Multisensor:
 i have hopefully the final revision in house around 2nd week of march (waiting on jlcpcb order)
 
 ### Parts List
-**Aliexpress**
-- [SNOS board](http://geni.us/)
-- [NodeMCU 1.0](http://geni.us/)
-- [DHT22 Module](http://geni.us/)
+**Aliexpress** (affiliate links)
+- SNOS board
+- [NodeMCU 1.0](https://s.click.aliexpress.com/e/_dSPnV6D) option cp102
+- [DHT22 Module](https://s.click.aliexpress.com/e/_dX0VELn) [(5x)](https://s.click.aliexpress.com/e/_dSR0BZR) [(10x)](https://s.click.aliexpress.com/e/_dTHlqxf)
     OR  
-- [SHT3x Module](http://geni.us/)
+- SHT30 Module
     OR 
-- [BME280 Module](http://geni.us/)
-- [CCS811 Module](http://geni.us/)
+- [BME280 Module](https://s.click.aliexpress.com/e/_dUFCwbJ) [(10x)](https://s.click.aliexpress.com/e/_dXqmLUl)
+- [CCS811 Module](https://s.click.aliexpress.com/e/_d9deomd) [(10x)](https://s.click.aliexpress.com/e/_d8LB1Kt)
 - [LDR Photoresistor Module](http://geni.us/)
     OR
-- [BHP1570](http://geni.us/)
-- [WS1812b Led](http://geni.us/)
-- [AM312 Mini PIR Sensor](http://geni.us/)
-- [piezo buzzer](http://geni.us/)
-- [3p 5mm terminal](http://geni.us/)
+- [BHP1570](https://s.click.aliexpress.com/e/_dY1WFdX) [(10x)](https://s.click.aliexpress.com/e/_d8COgN3)
+- [WS1812b Led](https://s.click.aliexpress.com/e/_d7BmdCN)
+- [AM312 Mini PIR Sensor](https://s.click.aliexpress.com/e/_dUSQcW5) [(5x)](https://s.click.aliexpress.com/e/_d81pmW5) [(10x)](https://s.click.aliexpress.com/e/_dTI8JVJ)
+- piezo buzzer
+- [3p 5mm terminal](https://s.click.aliexpress.com/e/_dZ96QS5)
 
 #### types of temperature sensors sorted by accuracy from less to highest accuracy
 
