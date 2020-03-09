@@ -80,3 +80,5 @@ This will be published with instructions once the design is finalized
 
 Don’t hesitate to share your feedback or your ideas of improvement!
 Have fun :+1:
+
+<a href="https://www.buymeacoffee.com/tarbax" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Beer" style="height: 51px !important;width: 217px !important;" ></a>
