@@ -1,4 +1,12 @@
 # Sensor Node On Steroids
+#
+#
+# ARCHIVED: read below 
+i could not get it right as a diy version with this many improvements this was my mean intestion but after 6 revisions i had to ditch the diy path
+had issues with to high cost, hard to solder and temperature sensor had a very large drift from the board heating up.
+#
+#
+#
 ### What?
 
 so after running the Bruh Multisensors for 2 years it was time to upgrade!
