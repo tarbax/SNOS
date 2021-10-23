@@ -1,22 +1,41 @@
+substitutions:
+  name: snos-regular
 esphome:
-  name: snos-regular-v2.2
+  name: "${name}"
   platform: esp32
   board: esp32dev
   # Automatically add the mac address to the name
   # so you can use a single firmware for all devices
   name_add_mac_suffix: true
+  project:
+    name: tarbax.snos-regular
+    version: "2.2"
+
+# Enable wifi
+wifi:
 
 # Enable logging
 logger:
+
 # API is a requirement of the dashboard import and to Enable Home Assistant API
 api:
   password: "PLEASE-CHANGE-ME"
+  services:
+    - service: play_rtttl
+      variables:
+        song_str: string
+      then:
+        - rtttl.play:
+            rtttl: lambda 'return song_str;'
+
 # OTA is required for Over-the-Air updating
 ota:
   password: "PLEASE-CHANGE-ME"
+
 # Enable web page
 web_server:
   port: 80
+
 # Sets up Bluetooth LE to allow the user
 # to provision wifi credentials to the device.
 esp32_improv:
@@ -25,13 +44,15 @@ esp32_improv:
 # This should point to the public location of this yaml file.
 dashboard_import:
   package_import_url: github://tarbax/SNOS/esphome-config/snos-regular.yaml
-
+  
+#  sensor configuration
 i2c:
   sda: 21
   scl: 22
   scan: true
   id: bus_a
 
+#  led/buzzer configuration
 output:
   - platform: ledc
     pin: GPIO27
@@ -46,9 +67,11 @@ output:
     pin: GPIO2
     id: bluegpio
 
+#  buzzer configuration
 rtttl:
   output: rtttl_out
-  
+
+#  air quality/temperature configuration
 bme680_bsec:
     # i2c address
     # -----------
@@ -88,21 +111,21 @@ bme680_bsec:
 sensor:
   - platform: bme680_bsec
     temperature:
-      name: "BME680 Temperature"
+      name: "{name} Temperature"
     pressure:
-      name: "BME680 Pressure"
+      name: "{name} Pressure"
     humidity:
-      name: "BME680 Humidity"
+      name: "{name} Humidity"
     iaq:
-      name: "BME680 IAQ"
+      name: "{name} IAQ"
       id: iaq_index
     co2_equivalent:
-      name: "BME680 CO2 Equivalent"
+      name: "{name} CO2 Equivalent"
     breath_voc_equivalent:
-      name: "BME680 Breath VOC Equivalent"
+      name: "{name} Breath VOC Equivalent"
       
   - platform: bh1750
-    name: "BH1750 Illuminance"
+    name: "{name} Illuminance"
     address: 0x5C
     measurement_duration: 69
     update_interval: 1s
@@ -110,10 +133,10 @@ sensor:
 text_sensor:
   - platform: bme680_bsec
     iaq_accuracy:
-      name: "BME680 IAQ Accuracy"
+      name: "{name} IAQ Accuracy"
       
   - platform: template
-    name: "air quality IAQ"
+    name: "{name} air quality IAQ"
     icon: "mdi:air-filter"
     lambda: |-
       
@@ -142,7 +165,7 @@ text_sensor:
     update_interval: 60s
 
   - platform: template
-    name: "ventilation advise"
+    name: "{name} ventilation advise"
     lambda: |-
       
       if (id(iaq_index).state <= 50) {
@@ -169,33 +192,24 @@ text_sensor:
       return {};
     update_interval: 60s
 
+#  button/motion configuration
 binary_sensor:
   - platform: gpio
     pin: GPIO33
-    name: "top button"
+    name: "{name} button"
     id: topb
   - platform: gpio
     pin: GPIO25
-    name: "snos PIR"
+    name: "{name} motion"
     device_class: motion
 
+# Optional temperature sensors
 dallas:
   - pin: GPIO18
-  
+#  led notification
 light:
   - platform: rgb
-    name: "Status Light"
+    name: "{name}Status Light"
     red: redgpio
     green: greengpio
     blue: bluegpio
-    
-
-api:
-  services:
-    - service: play_rtttl
-      variables:
-        song_str: string
-      then:
-        - rtttl.play:
-            rtttl: lambda 'return song_str;'
-
