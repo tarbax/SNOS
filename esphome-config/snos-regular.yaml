@@ -1,0 +1,201 @@
+esphome:
+  name: snos-regular-v2.2
+  platform: esp32
+  board: esp32dev
+  # Automatically add the mac address to the name
+  # so you can use a single firmware for all devices
+  name_add_mac_suffix: true
+
+# Enable logging
+logger:
+# API is a requirement of the dashboard import and to Enable Home Assistant API
+api:
+  password: "PLEASE CHANGE ME"
+# OTA is required for Over-the-Air updating
+ota:
+  password: "PLEASE CHANGE ME"
+# Enable web page
+web_server:
+  port: 80
+# Sets up Bluetooth LE to allow the user
+# to provision wifi credentials to the device.
+esp32_improv:
+  authorizer: topb
+  
+# This should point to the public location of this yaml file.
+dashboard_import:
+  package_import_url: github://tarbax/SNOS/esphome-config/snos-regular.yaml
+
+i2c:
+  sda: 21
+  scl: 22
+  scan: true
+  id: bus_a
+
+output:
+  - platform: ledc
+    pin: GPIO27
+    id: rtttl_out
+  - platform: ledc
+    pin: GPIO5
+    id: redgpio
+  - platform: ledc
+    pin: GPIO19
+    id: greengpio
+  - platform: ledc
+    pin: GPIO2
+    id: bluegpio
+
+rtttl:
+  output: rtttl_out
+  
+bme680_bsec:
+    # i2c address
+    # -----------
+    # Common values are:
+    # - 0x76
+    # - 0x77
+    # Default: 0x76
+    address: 0x76
+
+    # Temperature offset
+    # ------------------
+    # Useful if device is in enclosure and reads too high
+    # Default: 0
+    temperature_offset: 3.9
+
+    # IAQ calculation mode
+    # --------------------
+    # Available options:
+    # - static (for fixed position devices)
+    # - mobile (for on person or other moveable devices)
+    # Default: static
+    iaq_mode: static
+
+    # Sample rate
+    # -----------
+    # Available options:
+    # - lp (low power - samples every 3 seconds)
+    # - ulp (ultra low power - samples every 5 minutes)
+    # Default: lp
+    sample_rate: ulp
+
+    # Interval at which to save BSEC state
+    # ------------------------------------
+    # Default: 6h
+    state_save_interval: 6h
+
+sensor:
+  - platform: bme680_bsec
+    temperature:
+      name: "BME680 Temperature"
+    pressure:
+      name: "BME680 Pressure"
+    humidity:
+      name: "BME680 Humidity"
+    iaq:
+      name: "BME680 IAQ"
+      id: iaq_index
+    co2_equivalent:
+      name: "BME680 CO2 Equivalent"
+    breath_voc_equivalent:
+      name: "BME680 Breath VOC Equivalent"
+      
+  - platform: bh1750
+    name: "BH1750 Illuminance"
+    address: 0x5C
+    measurement_duration: 69
+    update_interval: 1s
+    
+text_sensor:
+  - platform: bme680_bsec
+    iaq_accuracy:
+      name: "BME680 IAQ Accuracy"
+      
+  - platform: template
+    name: "air quality IAQ"
+    icon: "mdi:air-filter"
+    lambda: |-
+      
+      if (id(iaq_index).state <= 50) {
+        return {"Uitstekend"};
+      }
+      else if (id(iaq_index).state <= 100) {
+        return {"Heel goed"};
+      }
+      else if (id(iaq_index).state <= 150) {
+        return {"Goed"};
+      }
+      else if (id(iaq_index).state <= 200) {
+        return {"Matig"};
+      }
+      else if (id(iaq_index).state > 250) {
+        return {"Slecht"};
+      }
+      else if (id(iaq_index).state > 350) {
+        return {"Ongezond"};
+      }
+      else if (id(iaq_index).state > 350) {
+        return {"Erg ongezond"};
+      }     
+      return {};
+    update_interval: 60s
+
+  - platform: template
+    name: "ventilation advise"
+    lambda: |-
+      
+      if (id(iaq_index).state <= 50) {
+        return {"none"};
+      }
+      else if (id(iaq_index).state <= 100) {
+        return {"none"};
+      }
+      else if (id(iaq_index).state <= 150) {
+        return {"ventileren aangewezen"};
+      }
+      else if (id(iaq_index).state <= 200) {
+        return {"ventileren nodig"};
+      }
+      else if (id(iaq_index).state > 250) {
+        return {"ventileren optimaliseren"};
+      }
+      else if (id(iaq_index).state > 350) {
+        return {"ventileren maximaliseren, beperk aanwezigheid"};
+      }
+      else if (id(iaq_index).state > 350) {
+        return {"ventileren maximaliseren, voorkom aanwezigheid"};
+      }     
+      return {};
+    update_interval: 60s
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO33
+    name: "top button"
+    id: topb
+  - platform: gpio
+    pin: GPIO25
+    name: "snos PIR"
+    device_class: motion
+
+dallas:
+  - pin: GPIO18
+  
+light:
+  - platform: rgb
+    name: "Status Light"
+    red: redgpio
+    green: greengpio
+    blue: bluegpio
+    
+
+api:
+  services:
+    - service: play_rtttl
+      variables:
+        song_str: string
+      then:
+        - rtttl.play:
+            rtttl: lambda 'return song_str;'
+
