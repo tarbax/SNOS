@@ -1,0 +1,42 @@
+  # All availible addons you can solder or attach to SNOS
+
+
+# Connect bluetooth low energy devices:
+# https://esphome.io/index.html#bluetooth-low-energy-ble
+
+
+# This creates a global hub so that you can track bluetooth low energy devices using your SNOS
+# docs: https://esphome.io/components/esp32_ble_tracker.html
+esp32_ble_tracker:
+
+# This creates a Bluetooth Low Energy Beacon with your ESP32 device. Beacons are BLE devices that repeatedly just send out a pre-defined packet of data.
+# This packet can then be received by devices like smartphones and can then be used to track a phone’s location.
+# docs: https://esphome.io/components/esp32_ble_beacon.html
+esp32_ble_beacon:
+
+# allows you to restart your SNOS remotely through Home Assistant.
+# docs: https://esphome.io/components/switch/restart.html
+switch:
+  - platform: restart
+    name: "{name} Restart"
+
+# Allows you to read the signal strength of the currently connected WiFi Access Point
+# docs: https://esphome.io/components/sensor/wifi_signal.html
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Signal Sensor"
+    update_interval: 60s
+
+# Allows you to track the time the ESP has stayed up for in seconds
+# docs: https://esphome.io/components/sensor/uptime.html
+sensor:
+  - platform: uptime
+    name: Uptime Sensor
+
+# Allows you to use the integrated hall effect sensor of the ESP32 chip to measure the 
+# magnitude and direction of magnetic field around the chip (with quite poor accuracy)
+# docs: https://esphome.io/components/sensor/esp32_hall.html
+sensor:
+  - platform: esp32_hall
+    name: "{name} Hall Sensor"
+    update_interval: 60s
