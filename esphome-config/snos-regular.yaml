@@ -10,10 +10,10 @@ esphome:
 logger:
 # API is a requirement of the dashboard import and to Enable Home Assistant API
 api:
-  password: "PLEASE CHANGE ME"
+  password: "PLEASE-CHANGE-ME"
 # OTA is required for Over-the-Air updating
 ota:
-  password: "PLEASE CHANGE ME"
+  password: "PLEASE-CHANGE-ME"
 # Enable web page
 web_server:
   port: 80
