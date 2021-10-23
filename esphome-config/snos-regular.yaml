@@ -44,7 +44,7 @@ esp32_improv:
 # This should point to the public location of this yaml file.
 dashboard_import:
   package_import_url: github://tarbax/SNOS/esphome-config/snos-regular.yaml
-  
+
 #  sensor configuration
 i2c:
   sda: 21
@@ -123,13 +123,15 @@ sensor:
       name: "{name} CO2 Equivalent"
     breath_voc_equivalent:
       name: "{name} Breath VOC Equivalent"
-      
+
+#  Illuminance sensor configuration
   - platform: bh1750
     name: "{name} Illuminance"
     address: 0x5C
     measurement_duration: 69
     update_interval: 1s
-    
+
+#  air quality/ventilation advise configuration   
 text_sensor:
   - platform: bme680_bsec
     iaq_accuracy:
@@ -141,25 +143,25 @@ text_sensor:
     lambda: |-
       
       if (id(iaq_index).state <= 50) {
-        return {"Uitstekend"};
+        return {"Excelent"};
       }
       else if (id(iaq_index).state <= 100) {
-        return {"Heel goed"};
+        return {"Good"};
       }
       else if (id(iaq_index).state <= 150) {
-        return {"Goed"};
+        return {"Lightly polluted"};
       }
       else if (id(iaq_index).state <= 200) {
-        return {"Matig"};
+        return {"Moderately polluted"};
       }
       else if (id(iaq_index).state > 250) {
-        return {"Slecht"};
+        return {"Heavily polluted"};
       }
       else if (id(iaq_index).state > 350) {
-        return {"Ongezond"};
+        return {"Severely polluted"};
       }
       else if (id(iaq_index).state > 350) {
-        return {"Erg ongezond"};
+        return {"Extremely polluted"};
       }     
       return {};
     update_interval: 60s
@@ -169,25 +171,25 @@ text_sensor:
     lambda: |-
       
       if (id(iaq_index).state <= 50) {
-        return {"none"};
+        return {"No measures needed"};
       }
       else if (id(iaq_index).state <= 100) {
-        return {"none"};
+        return {"No measures needed"};
       }
       else if (id(iaq_index).state <= 150) {
-        return {"ventileren aangewezen"};
+        return {"Ventilation advised"};
       }
       else if (id(iaq_index).state <= 200) {
-        return {"ventileren nodig"};
+        return {"Increase ventilation with clean air"};
       }
       else if (id(iaq_index).state > 250) {
-        return {"ventileren optimaliseren"};
+        return {"Optimize ventilation"};
       }
       else if (id(iaq_index).state > 350) {
-        return {"ventileren maximaliseren, beperk aanwezigheid"};
+        return {"Maximize ventilation, limit presence"};
       }
       else if (id(iaq_index).state > 350) {
-        return {"ventileren maximaliseren, voorkom aanwezigheid"};
+        return {"Maximize ventilation, prevent presence"};
       }     
       return {};
     update_interval: 60s
@@ -206,6 +208,7 @@ binary_sensor:
 # Optional temperature sensors
 dallas:
   - pin: GPIO18
+
 #  led notification
 light:
   - platform: rgb
